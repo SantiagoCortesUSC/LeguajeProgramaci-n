@@ -1,7 +1,14 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0px;
 }
 
+.encabezado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(4, 0, 255, 0.548);
+}
 nav ul {
     list-style: none;
     padding: 0;
