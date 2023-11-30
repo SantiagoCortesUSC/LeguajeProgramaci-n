@@ -20,6 +20,10 @@ body {
     
 }
 
+.contenido{
+    max-width: 90%;
+    padding-left: px;
+}
 
 
 
@@ -42,9 +46,12 @@ nav a {
     border-radius: 5px;
     font-size: 250%;
 }
+nav ul{
+    padding-inline-start: 0px;
+}
 
 main {
-    margin: 20px;
+    margin: 20px 100px 20px 100px;
 }
 
 main div {
