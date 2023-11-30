@@ -4,15 +4,30 @@ body {
 }
 
 .encabezado{
+    display: grid;
+    align-content: center;
+    background-color: rgba(137, 252, 153, 0.759);
+    height: 100px;
+}
+
+
+
+
+#navegacion {
     display: flex;
+    justify-content: space-evenly; /* Can be changed in the live sample */
     align-items: center;
-    justify-content: center;
-    background-color: rgba(4, 0, 255, 0.548);
+    
 }
-nav ul {
-    list-style: none;
-    padding: 0;
+
+
+
+
+.botones-cortes{
+    display: flex;
+    justify-content: space-around;
 }
+
 
 nav li {
     display: inline;
@@ -25,6 +40,7 @@ nav a {
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 250%;
 }
 
 main {
@@ -39,4 +55,29 @@ main div {
 
 main h2 {
     margin-top: 0;
+}
+
+
+
+
+
+.caja-codigo {
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: auto;
+    width: 50%;
+    white-space: pre-wrap;
+
+    margin-left: 5%;
+    
+}
+pre {
+    margin: 0;
+}
+code {
+    display: block;
+    padding: 16px;
+    color: #ccc;
+    font-size: 120%;
 }

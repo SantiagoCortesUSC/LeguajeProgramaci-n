@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Web</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <div class="encabezado">
     <nav>
-        <ul>
+        <ul id="navegacion">
             <li><a href="#" onclick="cambiarContenido('contenido1')">Corte 1</a></li>
             <li><a href="#" onclick="cambiarContenido('contenido2')">Corte 2</a></li>
             <li><a href="#" onclick="cambiarContenido('contenido3')">Corte 3</a></li>
@@ -17,19 +18,60 @@
     </nav>
     </div>
     <main id="mainContent">
+
+        <!-- Contenido del corte 1 -->
         <div id="contenido1">
-            <h2>Contenido 1</h2>
-            <p>Este es el primer contenido.</p>
+
+            <h1>Corte 1</h1>
+            <p>hola como estas espero que bien</p>
+            
+            <div class="caja-codigo">
+            <code>
+// Tu código aquí
+function mostrarMensaje() {
+alert('Hola, mundo!');
+}
+            </code>
+            </div>
+
         </div>
+
+
+
+        <!-- Contenido del corte 2 -->
         <div id="contenido2" style="display:none;">
-            <h2>Contenido 2</h2>
-            <p>Este es el segundo contenido.</p>
+
+            <h1>Corte 2</h1>
+            <p>hola como estas espero que bien</p>
+            
+            <div class="caja-codigo">
+            <code>
+// Tu código aquí
+function mostrarMensaje() {
+alert('Hola, mundo!');
+}
+            </code>
+            </div>
+
         </div>
+
+
+        <!-- Contenido del corte 3 -->
         <div id="contenido3" style="display:none;">
-            <h2>Contenido 3</h2>
-            <p>Este es el tercer contenido.</p>
+
+            <h1>Corte 3</h1>
+            <div class="caja-codigo">
+            <code>
+// Tu código aquí
+function mostrarMensaje() {
+alert('Hola, mundo!');
+}
+            </code>
+            </div>
+
         </div>
     </main>
     <script src="script.js"></script>
+
 </body>
 </html>
