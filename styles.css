@@ -75,11 +75,16 @@ main h2 {
     margin-top: 0;
 }
 
+ul h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 
 
 
 .caja-codigo {
-    background-color: #333;
+    background-color: rgb(30, 30, 30);
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: auto;
@@ -96,7 +101,7 @@ pre {
 code {
     display: block;
     padding: 16px;
-    color: #ccc;
+    color: rgb(212, 212, 212);
     font-size: 120%;
 }
 

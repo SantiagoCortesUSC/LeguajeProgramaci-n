@@ -19,7 +19,7 @@
     <main id="mainContent">
 
         <!-- Contenido del corte 1 -->
-        <div class="contenido" id="contenido1"  style="display:none;">
+        <div class="contenido" id="contenido1"  style="display:block;">
 
             <h1>Introducción A Python Y Fundamentos</h1>
             <h2>Funciones Puras:</h2>
@@ -77,7 +77,7 @@ dataSetFiltrado2 = list(filter( lambda    x:           x["hectarias"] > 4.0, miD
 
 
         <!-- Contenido del corte 2 -->
-        <div class="contenido" id="contenido2" style="display:block;">
+        <div class="contenido" id="contenido2" style="display:none;">
 
             <h1>Programacion Orientada A Objetos En Python </h1>
             <p>
@@ -102,23 +102,23 @@ dataSetFiltrado2 = list(filter( lambda    x:           x["hectarias"] > 4.0, miD
 
             <div class="caja-codigo">
                 <code>
-#Clase publisher que se encarga de actualizar o notificar a los subscritores
-class Publisher:
+<span class="nota">#Clase publisher que se encarga de actualizar o notificar a los subscritores</span>
+class Publisher: 
     
-    #inicializar lista de observadores
+    <span class="nota">#inicializar lista de observadores</span>
     def __init__(this):
         this._observers = []
 
 
-    #añade nuevos subscriptores
+    <span class="nota">#añade nuevos subscriptores</span>
     def addSubscriber(this, newSubscriber):
         this._observers.append(newSubscriber)
-    #Remueve subscrictores
+    <span class="nota">#Remueve subscrictores</span>
     def removeSubscriber(this, subscriber):
         this._observers.remove(subscriber)
 
     def notifySubscribers(this, message):
-        #enviar message a todos los subscritores en la lista:
+        <span class="nota">#enviar message a todos los subscritores en la lista:</span>
         for subscriber in this._observers:
             subscriber.Update(message)
 
@@ -146,21 +146,21 @@ class SubscriberType2(Subscriber):
 
 
 
-#Metodo principal:
+<span class="nota">#Metodo principal:</span>
 if __name__ == "__main__":
 
-    #Crear publisher
+    <span class="nota">#Crear publisher</span>
     publisher1 = Publisher()
     
-    #Crear subscriptores u "observers"
+    <span class="nota">#Crear subscriptores u "observers"</span>
     obsserver1 = SubscriberType1()
     obsserver2 = SubscriberType2()
     
-    #agregar subscriptores
+    <span class="nota">#agregar subscriptores</span>
     publisher1.addSubscriber(obsserver1)
     publisher1.addSubscriber(obsserver2)
     
-    #notificar subscriptores:
+    <span class="nota">#notificar subscriptores:</span>
     publisher1.notifySubscribers("checking my subscribers....")
     
                 </code>
@@ -176,8 +176,8 @@ if __name__ == "__main__":
 
             <div class="caja-codigo">
                 <code>
-#strategy (Patron de comportamiento)
-#Clase que define una estrategia en general
+<span class="nota">#strategy (Patron de comportamiento)
+#Clase que define una estrategia en general</span>
 class Strategy:
     
     def __init__(self, login, password):
@@ -188,7 +188,7 @@ class Strategy:
         pass
 
 
-#Estrategias concretas:
+<span class="nota">#Estrategias concretas:</span>
 class AtentificacionGoogle(Strategy):
 
     def __init__(self, login, password, token1, token2):
@@ -218,7 +218,7 @@ class AtentificacionFacebook(Strategy):
 
 
 
-#La clase context es la que le permite al cliente ejecutar la estategia correspondiente:
+<span class="nota">#La clase context es la que le permite al cliente ejecutar la estategia correspondiente:</span>
 class Context:
     
     def __init__(self, strategy:Strategy):
@@ -239,7 +239,7 @@ class Context:
 
             <div class="caja-codigo">
                 <code>
-#Ejemplo de singleton "clásico"
+<span class="nota">#Ejemplo de singleton "clásico"</span>
 
 class ClassicSingleton:
 
@@ -248,7 +248,7 @@ class ClassicSingleton:
     def __init__(this):
         raise RuntimeError("invocar la función create_instance para crear objeto")
     
-    #métodos de instancia
+    <span class="nota">#métodos de instancia</span>
     def enqueueDocument(this, fileName, format):
         pass
 
@@ -258,7 +258,7 @@ class ClassicSingleton:
     def deleteDocument(this, fileName):
         pass
     
-    #un "classmethod es un método estático"
+    <span class="nota">#un "classmethod es un método estático"</span>
     @classmethod
     def createInstance(this):
         if this._instance_ is None:
@@ -280,12 +280,12 @@ class ClassicSingleton:
 
             <div class="caja-codigo">
             <code>
-#Adapter (Patron estructural)
+<span class="nota">#Adapter (Patron estructural)
 #Clase *adaptada con interfaz no compatible con el *Cliente a traves de un *adaptador
 
 #Objetos con interfacez incopatibles sea utiles
 
-#Clase con interfaz compatible
+#Clase con interfaz compatible</span>
 class Adaptee:
     
     def __init__(self):
@@ -297,7 +297,7 @@ class Adaptee:
     
 
 
-#Clase cliente
+<span class="nota">#Clase cliente</span>
 class Client:
     
     def __init__(self):
@@ -307,7 +307,7 @@ class Client:
         return "Peticion del cliente (no compatible con la clase adaptada)"
 
 
-#Clase adaptadora
+<span class="nota">#Clase adaptadora</span>
 class Adapter(Client):
     
     def __init__(self, adaptee:Adaptee):
@@ -325,18 +325,186 @@ class Adapter(Client):
         <!-- Contenido del corte 3 -->
         <div class="contenido" id="contenido3" style="display:none;">
 
-            <h1>JavaConcurrency</h1>
-            <p>hola mundo!</p>
+            <h1>Java Concurrency</h1>
 
-            <span></span>
-
+            <p>
+                La programación concurrente se realiza a través del manejo de hilos. Un hilo es una unidad de ejecución independiente que permite realizar múltiples tareas simultáneamente. La programación concurrente se vuelve crucial para mejorar la eficiencia y la capacidad de respuesta de las aplicaciones.
+            </p>
+        
+            <h2>Paradigmas:</h2>
+        
+            <h3>• Estructurado</h3>
+            <p>
+                En Java, se puede estructurar el código en funciones o métodos. Sin embargo, se puede lograr una mejor estructura con la encapsulación y la modularidad, utilizando clases y objetos para estructurar el código de manera más efectiva.
+            </p>
+        
+            <h3>• Orientado a Objetos:</h3>
+            <p>
+                Java es un lenguaje de programación orientado a objetos, lo que significa que todo en Java es un objeto. Los conceptos clave de la programación orientada a objetos, como encapsulamiento, herencia y polimorfismo, son fundamentales en Java.
+            </p>
+        
+            <h3>• Funcional:</h3>
+            <p>
+                Aunque Java es principalmente un lenguaje orientado a objetos, a partir de la versión 8, introdujo características de programación funcional. La adición de expresiones lambda y Streams API permite un estilo de programación más funcional, facilitando operaciones en colecciones de datos de manera concisa.
+            </p>
+        
+            <h3>• Concurrente:</h3>
+            <p>
+                La programación concurrente en Java es una característica esencial. La capacidad de trabajar con múltiples hilos permite que las aplicaciones realicen tareas simultáneas, mejorando el rendimiento y la capacidad de respuesta. Java proporciona herramientas y bibliotecas, como el paquete `java.util.concurrent`, para facilitar la implementación de la concurrencia de manera segura.
+            </p>
+        
+            <h1>Hilos en Java</h1>
+        
+            <p>
+                Los hilos permiten que varias tareas se ejecuten simultáneamente, mejorando la eficiencia y la capacidad de respuesta de una aplicación.
+            </p>
+        
+            <p>A continuación se muestra y explica la ejecución de un programa haciendo uso de los hilos en Java.</p>
+        
+            <ul>
+                <li><h2>Creación de una Clase Principal (MainClass):</h2>
+                    <ul>
+                        <li>Se define una clase principal que contiene el método main, el punto de entrada del programa.</li>
+                        <li>Se crea una instancia de la clase Account, que representa una cuenta bancaria.</li>
+                    </ul>
+                </li>
+        
+                <li><h2>Creación de Hilos:</h2>
+                    <ul>
+                        <li>Se crean dos hilos (hiloRetiro y hiloDeposito) utilizando la clase Thread. Estos hilos realizan operaciones de retiro y depósito en la cuenta myAccount respectivamente.</li>
+                        <li>Se crea un arreglo de hilos (hilosRetiro) para simular retiros concurrentes en un bucle.</li>
+                    </ul>
+                </li>
+        
+                <li><h2>Implementación de la Clase Account:</h2>
+                    <ul>
+                        <li>La clase Account representa la cuenta bancaria y contiene métodos sincronizados (withdraw y deposit) para garantizar la coherencia en operaciones concurrentes.</li>
+                        <li>El método withdraw verifica que haya suficiente saldo antes de realizar un retiro y utiliza la palabra clave synchronized para evitar problemas de concurrencia.</li>
+                    </ul>
+                </li>
+        
+                <li><h2>Iniciando los Hilos:</h2>
+                    <ul>
+                        <li>Los hilos se inician llamando al método start() en cada instancia de Thread. Esto activa la ejecución del método run asociado.</li>
+                    </ul>
+                </li>
+        
+                <li><h2>Gestión de Concurrencia:</h2>
+                    <ul>
+                        <li>Se utiliza el método join para esperar a que los hilos (hiloDeposito, hiloRetiro y los hilos en hilosRetiro) finalicen su ejecución antes de continuar con el hilo principal (main).</li>
+                    </ul>
+                </li>
+        
+                <li><h2>Resultado Final:</h2>
+                    <ul>
+                        <li>Se imprime el balance final de la cuenta después de que todos los hilos han completado sus operaciones.</li>
+                    </ul>
+                </li>
+            </ul>
 
             <div class="caja-codigo">
             <code>
-// Tu código aquí
-function mostrarMensaje() {
-alert('Hola, mundo!');
+<span class="nota">//Main.js </span>
+public class MainClass {
+	
+	<span class="nota">//Metodo que se ejecuta para cada instancia del hilo</span>
+	public void run()
+	{
+		System.out.println("Ejecutando hilo"+ Thread.currentThread().getId());
+	}
+
+
+
+	public static void main(String[] args) throws InterruptedException
+	{
+		Account myAccount = new Account(250000);
+		
+		<span class="nota">//Crear 2 hilos para las dos operaciones sobre la cuenta </span>
+		Thread hiloRetiro = new Thread(	()-> myAccount.withdraw(0)	);
+		Thread hiloDeposito = new Thread(	()-> myAccount.deposit(0)	);
+		
+		
+		<span class="nota">//Crear un arreglo de hilos que invocan el mismo metodo:</span>
+		Thread [] hilosRetiro = new Thread[8];
+		for(int i = 0; i<hilosRetiro.length; i++)
+		{
+			hilosRetiro[i] = new Thread( ()-> myAccount.withdraw(100000) );
+			hilosRetiro[i].start();
+		}
+
+
+		<span class="nota">//Iniciar los hilos</span>
+		hiloRetiro.start();
+		hiloDeposito.start();
+
+
+
+		<span class="nota">//Unir los hilos a este hilo principal (main) e imprime el id de cada hilo</span>
+		try {
+
+			hiloDeposito.join();
+			hiloRetiro.join();
+			for(Thread t: hilosRetiro)
+			{
+				t.join();
+				System.out.println(t.getId());
+			}
+				
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		<span class="nota">//De aqui en adelante, se espera que ambos hilos terminen
+		//gracias a que llame la funcion join en cada uno de ellos.</span>
+
+		System.out.println("Balance final: "+myAccount.getBalance());
+
+        <span class="nota">//operaciones secuenciales:</span>
+		myAccount.deposit(500000);
+		myAccount.withdraw(40000);
+	}
+
 }
+
+
+<span class="nota">//Modulo Account</span>
+public class Account {
+	
+	private float balance;
+	
+	
+	public Account(float initialBalance)
+	{
+		this.balance = initialBalance;
+	}
+	
+	/**
+	 * retiro
+	 * @param amount
+	 */
+	public synchronized void withdraw(float amount)
+	{
+		//validar balance >= valor a retirar
+		if(balance >= amount)
+			balance -= amount;
+	}
+	
+	/**
+	 * depósito
+	 * @param amount
+	 */
+	public synchronized void deposit(float amount)
+	{
+		balance += amount;
+	}
+
+	public float getBalance()
+	{
+		return balance;
+	}
+}
+
             </code>
             </div>
 
