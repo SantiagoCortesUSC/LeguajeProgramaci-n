@@ -3,63 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>Santiago Cortes GitPage</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
     <div class="encabezado">
-    <nav>
-        <ul id="navegacion">
-            <li><a href="#" onclick="cambiarContenido('contenido1')">UNIDAD 1</a></li>
-            <li><a href="#" onclick="cambiarContenido('contenido2')">UNIDAD 2</a></li>
-            <li><a href="#" onclick="cambiarContenido('contenido3')">UNIDAD 3</a></li>
-        </ul>
-    </nav>
+        <nav class="navegacion" id="navegacion">
+            <button onclick="cambiarContenido('contenido1', this)">UNIDAD 1 </button>
+            <button onclick="cambiarContenido('contenido2', this)">UNIDAD 2 </button>
+            <button onclick="cambiarContenido('contenido3', this)">UNIDAD 3 </button>
+        </nav>
     </div>
+    
     <main id="mainContent">
 
         <!-- Contenido del corte 1 -->
-        <div class="contenido" id="contenido1">
+        <div class="contenido" id="contenido1"  style="display:none;">
 
             <h1>Introducción A Python Y Fundamentos</h1>
-            <p>hola como estas espero que bien</p>
             <h2>Funciones Puras:</h2>
+            <p> 
+                Las funciones puras son aquellas que, al recibir los mismos argumentos, 
+                siempre retornan el mismo resultado. 
+                Estas funciones no modifican el esdado de las variables o elementos fuera de su ámbito 
+                local, esto lo podemos lograr al crear copias de las variables que le pasemos. 
+                <br> Su principal característica es la previsibilidad y la ausencia de cambios colaterales
+            </p>
+            <div class="caja-codigo"><code>
+<span class="nota">#Una funcion pura en python 
+
+#Untrada: un lista de enteros
+#salida: una Copia de la lista de entrada, con sus valores ^2</span>
+
+def unaFuncionPura(listaDeEntrada):
+    <span class="nota">#Una lista vacia en Python</span>
+    listaSalida = []
+    <span class="nota">#Iterador en una lista</span>
+    for x in listaDeEntrada:
+        <span class="nota">#agregando un elemento a una lista</span>
+        listaSalida.append(x**2)
+
+    return listaSalida
+        </code></div>
+
             <h2>Funciones de bajo orden y de alto orden:</h2>
-            
+            <p>
+                En programación funcional, <strong>las funciones de bajo orden</strong> las funciones de bajo orden son aquellas que reciben o devuelven valores simples. <br>
+                <strong>Las funciones de alto orden</strong> son aquellas que pueden recibir funciones como argumentos y/o devolver funciones como resultados. 
+            </p>
             <h2>Funciones map, filter y reduce:</h2>
-            <div class="caja-codigo">
-            <code>
-// Tu código aquí
-function mostrarMensaje() {
-alert('Hola, mundo!');
-}
-            </code>
-            </div>
+            <p>
+                Estas son funciones integradas en Python que operan sobre secuencias (como listas) y aplican operaciones a cada elemento.
+            </p>
+
+            <div class="caja-codigo"><code>
+<span class="nota">#Funcion para filtrar nuestra lista.
+#Esta la pasareos a nuestra funcion filter, para que filtre: (los elementos que tengan menos de 80 especies de aves de un dataset, Humedales)</span>
+
+def filtroAves(humedal):
+    return humedal["especies de aves"] > 80
+
+dataSetFiltrado = list(filter(filtroAves, miDataSet))
+print(dataSetFiltrado)
+
+<span class="nota">#Tambien podemos hacer uso de funciones anonimas (lanmda) como funcion para nuestro filter
+                                #funcion  parametro     retorno</span>
+dataSetFiltrado2 = list(filter( lambda    x:           x["hectarias"] > 4.0, miDataSet ))
+        </code></div>
 
         </div>
 
 
 
         <!-- Contenido del corte 2 -->
-        <div class="contenido" id="contenido2" style="display:none;">
+        <div class="contenido" id="contenido2" style="display:block;">
 
             <h1>Programacion Orientada A Objetos En Python </h1>
-            <p>hola como estas espero que bien</p>
-            
+            <p>
+                En esta unidad, exploramos la Programación Orientada a Objetos en Python, un enfoque crucial para el desarrollo de software eficiente. 
+                Abordamos diversos temas, incluyendo clases, relaciones, herencia y tipos (modularidad, reusabilidad, adaptabilidad y testeabilidad). 
+                Además, analizamos conceptos fundamentales como el Modelo Vista Controlador y 
+                exploramos patrones de diseño clave, como Observer, Strategy, Singleton y Adapter, que desempeñan un papel crucial en la construcción de sistemas robustos y mantenibles.
+            </p>
             <h2>Patrones De Diseño:</h2>
+            <p>
+                <strong>Los patrones de diseño</strong> son soluciones generalizadas para problemas comunes en el diseño de software. <br>
+                Estos se aplican para mejorar la estructura, flexibilidad y mantenibilidad del código. 
+            </p>
 
-            <h3>- Observer</h3>
-            <h3>- Strategy</h3>
-            <h3>- Singelton</h3>
-            <h3>- Adapter</h3>
+            <!-- Observer -->
+            <h3>• Observer</h3>
+            <p>
+                El patrón <strong>Observer</strong> se utiliza para definir una dependencia uno a muchos entre objetos, 
+                de manera que cuando un objeto cambia su estado, todos sus dependientes son notificados y actualizados automáticamente. <br>
+                Este patrón se implementa utilizando clases observadoras y sujetos observados.
+            </p>
+
+            <div class="caja-codigo">
+                <code>
+#Clase publisher que se encarga de actualizar o notificar a los subscritores
+class Publisher:
+    
+    #inicializar lista de observadores
+    def __init__(this):
+        this._observers = []
+
+
+    #añade nuevos subscriptores
+    def addSubscriber(this, newSubscriber):
+        this._observers.append(newSubscriber)
+    #Remueve subscrictores
+    def removeSubscriber(this, subscriber):
+        this._observers.remove(subscriber)
+
+    def notifySubscribers(this, message):
+        #enviar message a todos los subscritores en la lista:
+        for subscriber in this._observers:
+            subscriber.Update(message)
+
+
+
+
+class Subscriber:
+
+    def Update(this, message):
+        pass
+
+
+class SubscriberType1(Subscriber):
+
+    def Update(this, message):
+        #return super().Update(message)
+        print(f"Subscriber 1 recibi mensage {message}")
+
+
+class SubscriberType2(Subscriber):
+
+    def Update(this, message):
+        #return super().Update(message)
+        print(f"Subscriber 2 recibi mensage {message}")
+
+
+
+#Metodo principal:
+if __name__ == "__main__":
+
+    #Crear publisher
+    publisher1 = Publisher()
+    
+    #Crear subscriptores u "observers"
+    obsserver1 = SubscriberType1()
+    obsserver2 = SubscriberType2()
+    
+    #agregar subscriptores
+    publisher1.addSubscriber(obsserver1)
+    publisher1.addSubscriber(obsserver2)
+    
+    #notificar subscriptores:
+    publisher1.notifySubscribers("checking my subscribers....")
+    
+                </code>
+                </div>
+
+            <!-- Strategy -->
+            <h3>• Strategy</h3>
+            <p>
+                El patrón <strong> Strategy </strong>define una familia de algoritmos, encapsula cada uno de ellos y los hace intercambiables. 
+                Esto permite que el cliente pueda elegir el algoritmo que desee utilizar en tiempo de ejecución. <br>
+                Esto se logra a través de la definición de clases estrategia y un contexto que utiliza la estrategia seleccionada.
+            </p>
+
+            <div class="caja-codigo">
+                <code>
+#strategy (Patron de comportamiento)
+#Clase que define una estrategia en general
+class Strategy:
+    
+    def __init__(self, login, password):
+        self.login = login
+        self.password = password
+
+    def execute():
+        pass
+
+
+#Estrategias concretas:
+class AtentificacionGoogle(Strategy):
+
+    def __init__(self, login, password, token1, token2):
+        super().__init__(login, password)
+        self.token1 = token1
+        self.token2 = token2
+
+
+    def execute(self):
+        print ("Autentificado con Google")
+        sesion = Sesion.createInstance()
+        print(sesion)
+
+class AtentificacionGitHub(Strategy):
+
+    def execute(self):
+        print ("Autentificado con GitHub")
+        sesion = Sesion.createInstance()
+        print(sesion)
+        
+class AtentificacionFacebook(Strategy):
+
+    def execute(self):
+        print ("Autentificado con Facebook")
+        sesion = Sesion.createInstance()
+        print(sesion)
+
+
+
+#La clase context es la que le permite al cliente ejecutar la estategia correspondiente:
+class Context:
+    
+    def __init__(self, strategy:Strategy):
+        self.strategy = strategy
+        
+    def execute_strategy(self):
+        self.strategy.execute()
+                </code>
+                </div>
+
+
+            <!-- Singelton -->
+            <h3>• Singelton</h3>
+            <p>
+                El patrón <strong> Singleton </strong> garantiza que una clase tenga solo una instancia y proporciona un punto global de acceso a esa instancia. <br>
+                Esto se implementa mediante la creación de una clase con un método que siempre devuelve la misma instancia, si ya existe, o la crea si no.
+            </p>
+
+            <div class="caja-codigo">
+                <code>
+#Ejemplo de singleton "clásico"
+
+class ClassicSingleton:
+
+    _instance_ = None
+
+    def __init__(this):
+        raise RuntimeError("invocar la función create_instance para crear objeto")
+    
+    #métodos de instancia
+    def enqueueDocument(this, fileName, format):
+        pass
+
+    def dispatchDocument(this, fileName):
+        pass
+
+    def deleteDocument(this, fileName):
+        pass
+    
+    #un "classmethod es un método estático"
+    @classmethod
+    def createInstance(this):
+        if this._instance_ is None:
+            #lo hace solo una vez, cuando no se ha instanciado ningún objeto
+            this._instance_ = this.__new__(this) 
+            #__new__ lo usa internamente __init__ para crear una nueva instancia de clase
+        
+        return this._instance_
+                </code>
+                </div>
+
+            <!-- Aadpter -->
+            <h3>• Adapter</h3>
+            <p>
+                El patrón <strong> Adapter </strong> permite que interfaces incompatibles trabajen juntas. Sirve como un puente entre dos interfaces diferentes, 
+                permitiendo que objetos con interfaces incompatibles colaboren de manera efectiva. <br>
+                Este se utiliza para que dos clases o sistemas puedan interactuar sin tener que modificar su código fuente.
+            </p>
 
             <div class="caja-codigo">
             <code>
-// Tu código aquí
-function mostrarMensaje() {
-alert('Hola, mundo!');
-}
+#Adapter (Patron estructural)
+#Clase *adaptada con interfaz no compatible con el *Cliente a traves de un *adaptador
+
+#Objetos con interfacez incopatibles sea utiles
+
+#Clase con interfaz compatible
+class Adaptee:
+    
+    def __init__(self):
+        pass
+
+
+    def request_trans(self):
+        return "Peticion adaptada a la interfaz del cliente"
+    
+
+
+#Clase cliente
+class Client:
+    
+    def __init__(self):
+        pass
+    
+    def request(self):
+        return "Peticion del cliente (no compatible con la clase adaptada)"
+
+
+#Clase adaptadora
+class Adapter(Client):
+    
+    def __init__(self, adaptee:Adaptee):
+        self.adaptee = adaptee
+        
+        
+    def request(self):
+        return self.adaptee.request_trans()
             </code>
             </div>
 
