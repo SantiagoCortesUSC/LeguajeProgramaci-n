@@ -10,6 +10,7 @@
 <body>
     <div class="encabezado">
         <nav class="navegacion" id="navegacion">
+            <button onclick="cambiarContenido('introducción', this)">Introducción </button>
             <button onclick="cambiarContenido('contenido1', this)">UNIDAD 1 </button>
             <button onclick="cambiarContenido('contenido2', this)">UNIDAD 2 </button>
             <button onclick="cambiarContenido('contenido3', this)">UNIDAD 3 </button>
@@ -18,8 +19,33 @@
     
     <main id="mainContent">
 
+
+        <div class="contenido" id="introducción"  style="display:block;">
+            <h1>Introducción</h1>
+            <p>
+                ¡Bienvenidos a mi pagina web! Mi nombre es <Strong>Santiago Cortes Cortes</Strong> 
+            </p>
+            <p>
+                Esta página, se estructura en tres unidades, cada una representando un corte en mis clases de Lenguajes de Programacion. 
+            </p>
+
+            <h2>Resumen:</h2>
+            <p>
+            <h3>Unidad 1: Introducción A Python Y Fundamentos</h3>
+            Comenzaremos con las bases sólidas de la programación en Python, abordando conceptos fundamentales que sientan las bases para este lenguaje. 
+            Como son las funciones puras, veremos que son las funciones de bajo orden y de alto orden, y desglosaremos las funciones map, filter y reduce.
+            
+            <h3>Unidad 2: Programación Orientada A Objetos En Python</h3>
+            En esta unidad, veremos la programación orientada a objetos en Python. Examinaremos patrones de diseño fundamentales, como Observer, Strategy, Singleton y Adapter, 
+            que constituyen herramientas poderosas para estructurar y organizar el código de manera eficiente.
+            
+            <h3>Unidad 3: Java Concurrency</h3>
+            Por ultimo tenemos la concurrencia en Java. Exploraremos paradigmas de programación, desde el enfoque estructurado hasta el funcional, 
+            y Exploraremos la programación concurrente, destacando la importancia de los hilos en Java.
+            </p>
+        </div>
         <!-- Contenido del corte 1 -->
-        <div class="contenido" id="contenido1"  style="display:block;">
+        <div class="contenido" id="contenido1"  style="display:none;">
 
             <h1>Introducción A Python Y Fundamentos</h1>
             <h2>Funciones Puras:</h2>
